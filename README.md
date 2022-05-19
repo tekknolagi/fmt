@@ -1,4 +1,4 @@
-# fmt
+# [fmt](https://github.com/tekknolagi/fmt)
 
 This very small formatting library provides two functions and a data type for
 when you need to heap-allocate and format a string at once. You could try and
