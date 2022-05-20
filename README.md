@@ -14,7 +14,7 @@ typedef struct str_size {
 
 str_size format(const char *fmt, ...);
 str_size formatv(const char *fmt, va_list args);
-void str_size_free(str_size str);
+void str_size_free(str_size str);  // or you can free(str.str)
 ```
 
 Happy hacking.
