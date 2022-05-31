@@ -9,7 +9,7 @@ tests_c: fmt.h tests.c
 	$(CC) -std=c99 $(CFLAGS) tests.c -o tests_c
 
 tests_cpp: fmt.h tests.c
-	$(CXX) -std=c++11 $(CXXFLAGS) tests.c -o tests_cpp
+	$(CXX) -std=c++98 $(CXXFLAGS) tests.c -o tests_cpp
 
 format:
 	clang-format -i fmt.h tests.c

@@ -11,6 +11,11 @@ typedef struct str_size {
   size_t length;
 } str_size;
 
+#if defined(__STRICT_ANSI__) && __STDC_VERSION__ + 0 <= 199900L &&             \
+    __cplusplus + 0 <= 201103L
+#define va_copy(d, s) __builtin_va_copy(d, s)
+#endif
+
 // Returns NULL str if allocation or formatting fails.
 static str_size formatv(const char *fmt, va_list args) {
   va_list args_copy;
