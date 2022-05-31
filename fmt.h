@@ -22,7 +22,7 @@ static str_size formatv(const char *fmt, va_list args) {
   }
   result.length = (size_t)size;
   // +1 to include NUL
-  result.str = malloc(size + 1);
+  result.str = (char *)malloc(size + 1);
   if (result.str == NULL) {
     return result;
   }

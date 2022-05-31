@@ -1,12 +1,20 @@
 CFLAGS=-Wall -Wextra -Wpedantic
+CXXFLAGS=$(CFLAGS)
 
-test: tests
-	./tests
+test: tests_c tests_cpp
+	./tests_c
+	./tests_cpp
 
-tests: fmt.h tests.o
-	$(CC) $(CFLAGS) tests.o -o tests
+tests_c: fmt.h tests.c
+	$(CC) -std=c99 $(CFLAGS) tests.c -o tests_c
+
+tests_cpp: fmt.h tests.c
+	$(CXX) -std=c++11 $(CXXFLAGS) tests.c -o tests_cpp
 
 format:
 	clang-format -i fmt.h tests.c
 
-.PHONY: test format
+clean:
+	rm tests_c tests_cpp
+
+.PHONY: test format clean
